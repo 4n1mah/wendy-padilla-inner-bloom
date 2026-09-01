@@ -9,33 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SobreMiRouteImport } from './routes/sobre-mi'
-import { Route as LibroRouteImport } from './routes/libro'
-import { Route as HabitarteRouteImport } from './routes/habitarte'
-import { Route as ContactoRouteImport } from './routes/contacto'
-import { Route as AgendaRouteImport } from './routes/agenda'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AgendaRouteImport } from './routes/agenda'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as HabitarteRouteImport } from './routes/habitarte'
+import { Route as LibroRouteImport } from './routes/libro'
+import { Route as SobreMiRouteImport } from './routes/sobre-mi'
 import { Route as ServiciosIndexRouteImport } from './routes/servicios.index'
 import { Route as ServiciosSlugRouteImport } from './routes/servicios.$slug'
 
-const SobreMiRoute = SobreMiRouteImport.update({
-  id: '/sobre-mi',
-  path: '/sobre-mi',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const LibroRoute = LibroRouteImport.update({
-  id: '/libro',
-  path: '/libro',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HabitarteRoute = HabitarteRouteImport.update({
-  id: '/habitarte',
-  path: '/habitarte',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactoRoute = ContactoRouteImport.update({
-  id: '/contacto',
-  path: '/contacto',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AgendaRoute = AgendaRouteImport.update({
@@ -43,9 +28,24 @@ const AgendaRoute = AgendaRouteImport.update({
   path: '/agenda',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HabitarteRoute = HabitarteRouteImport.update({
+  id: '/habitarte',
+  path: '/habitarte',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibroRoute = LibroRouteImport.update({
+  id: '/libro',
+  path: '/libro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SobreMiRoute = SobreMiRouteImport.update({
+  id: '/sobre-mi',
+  path: '/sobre-mi',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ServiciosIndexRoute = ServiciosIndexRouteImport.update({
@@ -136,32 +136,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sobre-mi': {
-      id: '/sobre-mi'
-      path: '/sobre-mi'
-      fullPath: '/sobre-mi'
-      preLoaderRoute: typeof SobreMiRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/libro': {
-      id: '/libro'
-      path: '/libro'
-      fullPath: '/libro'
-      preLoaderRoute: typeof LibroRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/habitarte': {
-      id: '/habitarte'
-      path: '/habitarte'
-      fullPath: '/habitarte'
-      preLoaderRoute: typeof HabitarteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contacto': {
-      id: '/contacto'
-      path: '/contacto'
-      fullPath: '/contacto'
-      preLoaderRoute: typeof ContactoRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/agenda': {
@@ -171,11 +150,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AgendaRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/habitarte': {
+      id: '/habitarte'
+      path: '/habitarte'
+      fullPath: '/habitarte'
+      preLoaderRoute: typeof HabitarteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/libro': {
+      id: '/libro'
+      path: '/libro'
+      fullPath: '/libro'
+      preLoaderRoute: typeof LibroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sobre-mi': {
+      id: '/sobre-mi'
+      path: '/sobre-mi'
+      fullPath: '/sobre-mi'
+      preLoaderRoute: typeof SobreMiRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/servicios/': {

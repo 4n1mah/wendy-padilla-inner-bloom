@@ -12,7 +12,10 @@ export const Route = createFileRoute("/sobre-mi")({
         content:
           "Wendy Padilla, psicóloga, autora y facilitadora. Un enfoque que integra desarrollo personal y filosofía Kaizen.",
       },
-      { property: "og:title", content: "Sobre mí — Wendy Padilla" },
+      {
+        property: "og:title",
+        content: "Sobre mí — Wendy Padilla",
+      },
       {
         property: "og:description",
         content:
@@ -25,73 +28,98 @@ export const Route = createFileRoute("/sobre-mi")({
 
 function SobreMi() {
   useReveal();
+
   return (
     <section className="py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-6">
+
+        {/* Encabezado */}
         <PageHeader
           eyebrow="Sobre mí"
           title={
             <>
-              Habitarse es el <span className="italic">camino más real</span>
+              Habitarse es el{" "}
+              <span className="italic">camino más real</span>
             </>
           }
         />
 
+        {/* Contenido principal */}
         <div className="mt-16 grid gap-12 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+
+          {/* Imagen */}
           <div className="reveal">
-            <div className="relative">
+            <div className="relative mx-auto max-w-md">
+              
+              {/* Fondo decorativo */}
               <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-secondary/60" />
-              <img
-                src={heroImg}
-                alt="Wendy Padilla, psicóloga y facilitadora"
-                className="aspect-[4/5] w-full rounded-[1.75rem] object-cover shadow-sm"
-              />
+
+              {/* Imagen */}
+              <div className="overflow-hidden rounded-[1.75rem] bg-secondary/20 shadow-sm">
+                <img
+                  src={heroImg}
+                  alt="Wendy Padilla, psicóloga y facilitadora"
+                  className="block h-auto w-full object-contain"
+                />
+              </div>
+
             </div>
           </div>
+
+          {/* Texto */}
           <div className="reveal space-y-6 text-base leading-relaxed text-foreground/85">
+
             <p>
-              Soy <strong className="font-medium text-foreground">Wendy Padilla</strong> —
-              psicóloga, autora y facilitadora de desarrollo personal.
+              Soy{" "}
+              <strong className="font-medium text-foreground">
+                Wendy Padilla
+              </strong>
+              , psicóloga, autora y facilitadora de desarrollo personal.
             </p>
+
             <p>
-              Durante años acompañé a otros a encontrar claridad, y en ese camino
-              aprendí algo que hoy es la base de todo lo que hago: no se puede dar
-              lo que no se tiene. Antes de guiar a alguien hacia su transformación,
-              tuve que habitar la mía. Aprendí —a veces de la forma más difícil—
-              que amarme, conocerme y mejorar cada día no era un lujo ni una frase
-              bonita: era el punto de partida de todo lo demás.
+              Mi trabajo nace de una convicción: para aprender a amarte,
+              primero necesitas conocerte; para conocerte, necesitas
+              reconocerte; y para mejorar aquello de ti que no te gusta,
+              necesitas hacerlo desde el amor y no desde el rechazo.
             </p>
+
             <p>
               De esa convicción nació{" "}
-              <span className="italic text-primary">Kaizen</span>: la filosofía
-              japonesa del mejoramiento continuo, que me enseñó que los grandes
-              cambios no llegan de golpe, sino paso a paso, con constancia y
-              compasión hacia una misma.
+              <span className="italic text-primary">Habitarte</span>: un
+              concepto que invita a dejar de abandonarte en medio de los
+              roles, las exigencias y las circunstancias de la vida, para
+              comenzar a hacer de ti tu propio lugar.
             </p>
+
             <p>
-              Hoy acompaño a mujeres, jóvenes y personas que sienten que hay algo
-              más para ellas —que están cansadas de vivir en piloto automático y
-              quieren empezar a habitarse de verdad—. Uno mi formación como psicóloga
-              con herramientas prácticas de desarrollo personal, para crear espacios
-              donde el crecimiento no se sienta forzado, sino auténtico y sostenible.
+              Habitarte es también el propósito que atraviesa mi libro{" "}
+              <span className="italic">Cuando me amé de verdad</span>, una
+              obra creada para mujeres que, aun amándose, se han ido dejando
+              de lado mientras intentaban cumplir con todo y con todos.
             </p>
+
             <p>
-              Soy autora de{" "}
-              <strong className="font-medium text-foreground">
-                "Cuando me amé de verdad"
-              </strong>
-              , una guía nacida de mi propia historia, escrita para quien esté lista
-              para pausar, mirar hacia adentro y comenzar su propio camino de amor
-              propio.
+              Hoy, mi propósito es acompañar a más mujeres a conocerse,
+              amarse y mejorarse para aprender, finalmente, a habitarse.
             </p>
+
             <p>
-              Si sientes que es momento de conocerte, de amarte de verdad y de mejorar
-              sin perder tu esencia en el intento, este es tu lugar.
+              Si sientes que es momento de conocerte, de amarte de verdad y
+              de mejorar sin perder tu esencia en el intento, este es tu
+              lugar.
             </p>
+
+            {/* Frase */}
             <blockquote className="border-l-2 border-accent pl-5 font-serif text-lg italic text-foreground/80">
-              «Siempre se puede ser y estar mejor.»
-              <footer className="mt-2 text-sm not-italic text-muted-foreground">— Wendy</footer>
+              <p>Siempre se puede ser y estar mejor.</p>
+
+              <footer className="mt-2 text-sm not-italic text-muted-foreground">
+                — Wendy Padilla · Kaizen ❤️
+              </footer>
             </blockquote>
+
+            {/* Botón */}
             <div className="pt-4">
               <Link
                 to="/servicios"
@@ -100,6 +128,7 @@ function SobreMi() {
                 Conoce mis servicios
               </Link>
             </div>
+
           </div>
         </div>
       </div>
