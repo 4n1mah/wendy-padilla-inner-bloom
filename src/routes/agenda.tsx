@@ -8,7 +8,8 @@ import { services } from "@/lib/services";
 import { waLink } from "@/lib/site";
 
 const searchSchema = z.object({
-  servicio: z.enum(["conocete", "amate", "mejorate"]).optional(),
+  // Un valor inválido en la URL (p. ej. ?servicio=xyz) se ignora en vez de romper la página.
+  servicio: z.enum(["conocete", "amate", "mejorate"]).optional().catch(undefined),
 });
 
 export const Route = createFileRoute("/agenda")({
