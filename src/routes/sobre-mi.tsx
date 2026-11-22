@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "@/assets/wendy-hero.jpg";
+import { WendyPhoto } from "@/components/site/WendyPhoto";
+import sobreMiImg from "@/assets/wendy-sobre-mi.jpg";
+import { LIBRO_URL } from "@/lib/site";
 import { useReveal } from "@/components/site/Reveal";
 import { PageHeader } from "@/components/site/SiteChrome";
 
@@ -38,8 +40,7 @@ function SobreMi() {
           eyebrow="Sobre mí"
           title={
             <>
-              Habitarse es el{" "}
-              <span className="italic">camino más real</span>
+              <span className="italic text-primary">Habitarme</span> es mi esencia
             </>
           }
         />
@@ -49,75 +50,71 @@ function SobreMi() {
 
           {/* Imagen */}
           <div className="reveal">
-            <div className="relative mx-auto max-w-md">
-              
-              {/* Fondo decorativo */}
-              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-secondary/60" />
+            <WendyPhoto src={sobreMiImg} alt="Wendy Padilla, psicóloga y facilitadora" />
 
-              {/* Imagen */}
-              <div className="overflow-hidden rounded-[1.75rem] bg-secondary/20 shadow-sm">
-                <img
-                  src={heroImg}
-                  alt="Wendy Padilla, psicóloga y facilitadora"
-                  className="block h-auto w-full object-contain"
-                />
-              </div>
-
-            </div>
+            {/* Frase bajo la foto (la firma ya está en el pie de la foto) */}
+            <blockquote className="mx-auto mt-8 max-w-md text-center">
+              <span className="mx-auto block h-px w-12 bg-accent" />
+              <p className="mt-6 font-serif text-2xl italic leading-snug text-foreground/80">
+                «Siempre se puede ser y estar mejor».
+              </p>
+            </blockquote>
           </div>
 
           {/* Texto */}
           <div className="reveal space-y-6 text-base leading-relaxed text-foreground/85">
 
             <p>
-              Soy{" "}
-              <strong className="font-medium text-foreground">
-                Wendy Padilla
-              </strong>
-              , psicóloga, autora y facilitadora de desarrollo personal.
+              Soy <strong className="font-medium text-foreground">Wendy Padilla</strong>,
+              psicóloga, autora, facilitadora y fundadora de{" "}
+              <span className="text-primary">HABITARTE ❤️</span>.
             </p>
 
             <p>
-              Mi trabajo nace de una convicción: para aprender a amarte,
-              primero necesitas conocerte; para conocerte, necesitas
-              reconocerte; y para mejorar aquello de ti que no te gusta,
+              Desde niña me apasionan el amor propio, el desarrollo personal y la comprensión
+              profunda del ser.
+            </p>
+
+            <p>
+              Mi trabajo nace de una convicción: para amarte, primero necesitas conocerte; para
+              conocerte, necesitas reconocerte; y para mejorar aquello que no te gusta de ti,
               necesitas hacerlo desde el amor y no desde el rechazo.
             </p>
 
             <p>
-              De esa convicción nació{" "}
-              <span className="italic text-primary">Habitarte</span>: un
-              concepto que invita a dejar de abandonarte en medio de los
-              roles, las exigencias y las circunstancias de la vida, para
-              comenzar a hacer de ti tu propio lugar.
+              Porque no puedes amar lo que
+              no conoces y no puedes mejorar lo que no entiendes.
             </p>
 
             <p>
-              Habitarte es también el propósito que atraviesa mi libro{" "}
-              <span className="italic">Cuando me amé de verdad</span>, una
-              obra creada para mujeres que, aun amándose, se han ido dejando
-              de lado mientras intentaban cumplir con todo y con todos.
+              De esa convicción nació <span className="text-primary">HABITARTE ❤️</span>: una
+              invitación a no abandonarte en medio de los roles, las exigencias y las
+              circunstancias, y a hacer de ti tu propio refugio.
             </p>
 
             <p>
-              Hoy, mi propósito es acompañar a más mujeres a conocerse,
-              amarse y mejorarse para aprender, finalmente, a habitarse.
+              Ese es también el propósito de mi libro{" "}
+              <a
+                href={LIBRO_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="italic text-primary underline decoration-primary/40 underline-offset-4 transition-colors hover:decoration-primary"
+              >
+                Cuando me amé de verdad
+              </a>
+              : una guía para amarte desde el ser, pensada para mujeres que, aun amándose, se han
+              ido dejando de lado por cumplir con todo y con todos. Porque, incluso en medio de
+              cualquier proceso, tú eres el lugar correcto.
             </p>
 
             <p>
-              Si sientes que es momento de conocerte, de amarte de verdad y
-              de mejorar sin perder tu esencia en el intento, este es tu
-              lugar.
+              Hoy acompaño a mujeres a conocerse, amarse y mejorarse para, finalmente, habitarse.
             </p>
 
-            {/* Frase */}
-            <blockquote className="border-l-2 border-accent pl-5 font-serif text-lg italic text-foreground/80">
-              <p>Siempre se puede ser y estar mejor.</p>
-
-              <footer className="mt-2 text-sm not-italic text-muted-foreground">
-                — Wendy Padilla · Kaizen ❤️
-              </footer>
-            </blockquote>
+            <p>
+              Si sientes que es momento de mejorar sin perder tu esencia en el intento, este es tu
+              lugar. Deja de abandonarte y empieza a habitarte.
+            </p>
 
             {/* Botón */}
             <div className="pt-4">

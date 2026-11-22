@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
-import heroImg from "@/assets/wendy-hero.jpg";
+import { WendyPhoto } from "@/components/site/WendyPhoto";
 import bookImg from "@/assets/wendy-book.jpg";
 import { services } from "@/lib/services";
 import { useReveal } from "@/components/site/Reveal";
@@ -45,20 +45,40 @@ function Home() {
             </p>
 
             <h1 className="font-serif text-5xl leading-[1.05] tracking-tight md:text-7xl">
-              <span className="italic text-primary">Habitarte</span>
+              <span className="italic text-primary">Habitarte</span>{" "}
+              <span aria-hidden="true" className="align-middle text-3xl md:text-4xl">
+                ❤️
+              </span>
             </h1>
 
-            <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground text-justify">
-              No siempre puedes cambiar lo que estás viviendo, pero sí puedes
-              cambiar la manera en que lo atraviesas.
+            <p className="mt-5 max-w-md font-serif text-2xl italic leading-snug text-foreground/85 md:text-3xl">
+              Trabajar en ti mientras atraviesas tu propia vida.
             </p>
 
-            <p className="mt-8 max-w-md text-base leading-relaxed text-muted-foreground text-justify">
-              HABITARTE es un espacio de psicoeducación y desarrollo personal
-              para mujeres que atraviesan distintas etapas, cambios y
-              circunstancias de la vida, y quieren aprender a no abandonarse
-              en el proceso.
+            <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
+              <strong className="font-medium text-foreground">HABITARTE</strong> es aprender a
+              permanecer contigo, especialmente en las etapas difíciles.
             </p>
+
+            <p className="mt-4 max-w-md text-base leading-relaxed text-muted-foreground text-justify">
+              No siempre puedes cambiar lo que estás viviendo, pero sí puedes trabajar en ti
+              mientras lo atraviesas: cuidarte, fortalecerte, sanar y seguir construyéndote sin
+              abandonarte en el proceso.
+            </p>
+
+            <div className="mt-8 max-w-md">
+              <p className="font-serif text-3xl italic text-primary">
+                Habitarte{" "}
+                <span aria-hidden="true" className="not-italic text-2xl">
+                  ❤️
+                </span>
+              </p>
+              <p className="mt-3 text-base leading-relaxed text-muted-foreground text-justify">
+                La idea central de HABITARTE es ayudarte a dejar de abandonarte y empezar a
+                construir una vida más coherente contigo misma, teniendo en cuenta tu historia, tus
+                circunstancias y el momento de vida que estás atravesando.
+              </p>
+            </div>
 
             <blockquote className="mt-8 border-l-2 border-accent pl-5 font-serif text-lg italic text-foreground/80">
               Siempre se puede ser y estar mejor.
@@ -71,6 +91,7 @@ function Home() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
                 to="/habitarte"
+                viewTransition
                 className="rounded-full bg-primary px-7 py-3.5 text-sm text-primary-foreground shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-md"
               >
                 Conoce Habitarte
@@ -87,26 +108,7 @@ function Home() {
 
           {/* IMAGEN HERO */}
           <div className="reveal">
-            <div className="relative mx-auto max-w-md">
-
-              {/* Fondo decorativo */}
-              <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-secondary/60" />
-
-              {/* Círculo decorativo */}
-              <div className="absolute -bottom-6 -right-6 -z-10 hidden h-40 w-40 rounded-full bg-accent/25 blur-2xl md:block" />
-
-              {/* Imagen */}
-              <div className="overflow-hidden rounded-[1.75rem] bg-secondary/20 shadow-sm">
-                <img
-                  src={heroImg}
-                  alt="Retrato de Wendy Padilla"
-                  width={1024}
-                  height={1280}
-                  className="block h-auto w-full object-contain"
-                />
-              </div>
-
-            </div>
+            <WendyPhoto alt="Retrato de Wendy Padilla" />
           </div>
         </div>
       </section>

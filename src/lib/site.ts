@@ -6,6 +6,10 @@ export const waLink = (msg: string) =>
 export const IG_HANDLE = "soywendypadilla";
 export const IG_URL = `https://instagram.com/${IG_HANDLE}`;
 
+// Libro "Cuando me amé de verdad" en Amazon
+export const LIBRO_URL =
+  "https://www.amazon.com/dp/B0H4BVMGQJ?lv=shuf&language=es&channelId=500&plpRedirect=mhFallback&th=1";
+
 export const navLinks = [
   { to: "/", label: "Inicio" },
   { to: "/habitarte", label: "Habitarte" },

@@ -1,270 +1,239 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowRight, Check } from "lucide-react";
+import { useReveal } from "@/components/site/Reveal";
+import { PageHeader } from "@/components/site/SiteChrome";
+import type { ReactNode } from "react";
 
 export const Route = createFileRoute("/habitarte")({
   head: () => ({
     meta: [
-      { title: "Habitarte — Wendy Padilla" },
+      { title: "Conoce Habitarte — Wendy Padilla" },
       {
         name: "description",
         content:
-          "Habitarte es un espacio de educación y desarrollo personal para mujeres que atraviesan distintas etapas, cambios y circunstancias de la vida.",
+          "HABITARTE es trabajar en ti mientras atraviesas tu propia vida. Talleres grupales y mentorías Kaizen con Wendy Padilla.",
       },
-      {
-        property: "og:title",
-        content: "Habitarte — Wendy Padilla",
-      },
+      { property: "og:title", content: "Conoce Habitarte — Wendy Padilla" },
       {
         property: "og:description",
         content:
-          "Un espacio de educación y desarrollo personal para mujeres que quieren aprender a no abandonarse en el proceso.",
+          "Aprender a permanecer contigo cuando las circunstancias no son como quisieras.",
       },
     ],
   }),
   component: HabitartePage,
 });
 
+const pilares = [
+  {
+    n: "01",
+    title: "Aceptar tu realidad",
+    text: "Reconocer dónde estás y lo que estás viviendo, sin negarlo ni esperar a que todo cambie para comenzar.",
+  },
+  {
+    n: "02",
+    title: "Trabajar en ti",
+    text: "Fortalecer tu autoestima, autenticidad, límites, autocuidado y aquello que necesitas sanar o transformar.",
+  },
+  {
+    n: "03",
+    title: "Prepararte para tu próxima etapa",
+    text: "Seguir construyéndote mientras atraviesas el proceso, para llegar a la siguiente etapa con mayor conciencia, fortaleza y claridad.",
+  },
+];
+
+const Resaltado = ({ children }: { children: ReactNode }) => (
+  <strong className="font-semibold text-foreground">{children}</strong>
+);
+
+const caminos: { title: string; extra: { text: string; lang?: string }; text: ReactNode }[] = [
+  {
+    title: "Habitarte, talleres",
+    extra: { text: "❤️" },
+    text: "Espacios grupales creados para reconstruir la autoestima, recuperar la autenticidad y aprender a amarse de verdad.",
+  },
+  {
+    title: "Mentorías Kaizen",
+    extra: { text: "改善", lang: "ja" },
+    text: (
+      <>
+        Un acompañamiento individual y profundo basado en el proceso de{" "}
+        <Resaltado>Conocerte</Resaltado>, <Resaltado>Amarte</Resaltado> y{" "}
+        <Resaltado>Mejorarte</Resaltado>, diseñado de forma 100% personalizada a tu ritmo y
+        situación actual.
+      </>
+    ),
+  },
+];
+
+const paraQuien = [
+  "Cambios en sus relaciones.",
+  "Divorcios o separaciones.",
+  "Etapas de soledad.",
+  "Cambios familiares.",
+  "Maternidad y transformación de roles.",
+  "Nuevas etapas de la vida.",
+  "Procesos de cambio personal.",
+  "Circunstancias que todavía no pueden o no desean cambiar.",
+  "Etapas en las que quieren seguir construyéndose sin perderse a sí mismas.",
+];
+
 function HabitartePage() {
+  useReveal();
+
   return (
-    <section className="pt-32 pb-20 md:pt-40 md:pb-28">
-      <div className="mx-auto max-w-4xl px-6">
+    <>
+      {/* ¿QUÉ SIGNIFICA? */}
+      <section className="pb-16 pt-8 md:pb-24 md:pt-12">
+        <div className="mx-auto max-w-3xl px-6">
+          <PageHeader
+            eyebrow="Conoce Habitarte ❤️"
+            title={
+              <span className="text-foreground/75">
+                ¿Qué significa <span className="italic text-primary">Habitarte</span>?
+              </span>
+            }
+          />
 
-        {/* ¿Qué es Habitarte? */}
-        <div className="text-center">
-          <h1 className="font-serif text-6xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿Qué es Habitarte?
-            </span>
-          </h1>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground text-justify">
-            Si estás atravesando un proceso difícil, una circunstancia que hoy
-            no puedes cambiar o simplemente no es el momento de hacerlo,
-            Habitarte es tu espacio. No se trata de cambiar aquello que hoy no
-            puedes cambiar, ni de hacer terapia sobre tu circunstancia.
-          </p>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground text-justify">
-            Se trata de brindarte herramientas para conocerte, cuidarte y
-            fortalecerte mientras atraviesas tu proceso.
-          </p>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground text-justify">
-            Porque quizá hoy no puedas cambiar tu realidad, pero sí puedes
-            decidir qué haces contigo mientras la atraviesas.
-          </p>
-
-          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground text-justify">
-            Eso es Habitarte: dejar de abandonarte mientras atraviesas tu
-            propia vida.
-          </p>
-        </div>
-
-   <br />   
-
-        {/* ¿Para quién es Habitarte? */}
-        <div className="mb-20">
-          <h2 className="text-center font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿Para quién es Habitarte?
-            </span>
-          </h2>
-
-          <p className="mt-6 text-base leading-relaxed text-foreground text-justify">
-            Para mujeres que están atravesando:
-          </p>
-
-          <ol className="mt-8 list-decimal list-inside space-y-5 text-base leading-relaxed text-foreground">
-            <li>Cambios en sus relaciones.</li>
-            <li>Divorcios o separaciones.</li>
-            <li>Etapas de soledad.</li>
-            <li>Cambios familiares.</li>
-            <li>Maternidad y transformación de roles.</li>
-            <li>Nuevas etapas de la vida.</li>
-            <li>Procesos de cambio personal.</li>
-            <li>
-              Circunstancias que todavía no pueden o no desean cambiar.
-            </li>
-            <li>
-              Mujeres que quieren atravesar estas etapas sin perderse a sí
-              mismas.
-            </li>
-          </ol>
-        </div>
-
-        {/* El método Habitarte */}
-        <div className="mb-20">
-          <h2 className="text-center font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿En qué consiste el método Habitarte?
-            </span>
-          </h2>
-
-          <div className="mt-10 space-y-10">
-
-            {/* Conocerte */}
-            <div>
-              <h3 className="text-center font-serif text-3xl italic text-primary">
-                Conocerte
-              </h3>
-
-              <p className="mt-3 text-base leading-relaxed text-foreground text-justify">
-                Reconocer quién eres, qué necesitas, qué sientes y qué
-                patrones forman parte de tu manera de vivir.
-              </p>
-            </div>
-
-            {/* Amarte */}
-            <div>
-              <h3 className="text-center font-serif text-3xl italic text-primary">
-                Amarte
-              </h3>
-
-              <p className="mt-3 text-base leading-relaxed text-foreground text-justify">
-                Aprender a tratarte con respeto, reconocer tu valor y dejar de
-                ponerte siempre en último lugar.
-              </p>
-            </div>
-
-            {/* Mejorarte */}
-            <div>
-              <h3 className="text-center font-serif text-3xl italic text-primary">
-                Mejorarte
-              </h3>
-
-              <p className="mt-3 text-base leading-relaxed text-foreground text-justify">
-                Trabajar en aquello que quieres transformar en ti, no desde
-                el rechazo, sino desde el deseo de convertirte en una mejor
-                versión de ti misma.
-              </p>
-            </div>
-
-            {/* Habitarte */}
-            <div>
-              <h3 className="text-center font-serif text-3xl italic text-primary">
-                Habitarte
-              </h3>
-
-              <p className="mt-3 text-base leading-relaxed text-foreground text-justify">
-                Integrar todo lo anterior para aprender a estar de tu lado en
-                las distintas circunstancias de tu vida.
-              </p>
-            </div>
-
-          </div>
-        </div>
-
-        {/* Talleres */}
-        <div className="mb-20">
-          <h2 className="text-center font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿Qué son los Talleres Habitarte?
-            </span>
-          </h2>
-
-          <h3 className="mt-8 text-center font-serif text-2xl text-foreground">
-            Herramientas para atravesar tu proceso sin abandonarte.
-          </h3>
-
-          <p className="mt-5 text-base leading-relaxed text-foreground text-justify">
-            Espacios de educación y desarrollo personal diseñados para
-            ayudarte a fortalecer tu autoestima, conocerte mejor y desarrollar
-            recursos personales para afrontar las diferentes etapas de la vida.
-          </p>
-        </div>
-
-        {/* Vida resuelta */}
-        <div className="mb-20">
-          <h2 className="text-center font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿Necesitas tener tu vida resuelta para comenzar?
-            </span>
-          </h2>
-
-          <p className="mt-6 text-base leading-relaxed text-foreground text-justify">
-            No necesitas tener tu vida resuelta para comenzar a cuidarte.
-          </p>
-
-          <p className="mt-5 text-base leading-relaxed text-foreground text-justify">
-            A veces, el primer paso no es cambiar lo que está pasando afuera,
-            sino aprender a acompañarte mientras lo atraviesas.
-          </p>
-        </div>
-
-        {/* Circunstancias */}
-        <div className="mb-20">
-          <h2 className="text-center font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿Y si todavía no puedo cambiar mi circunstancia?
-            </span>
-          </h2>
-
-          <p className="mt-6 text-base leading-relaxed text-foreground text-justify">
-            Habitarte parte de una idea sencilla: no siempre puedes elegir lo
-            que estás viviendo, pero sí puedes aprender a elegir cómo estar
-            contigo mientras lo atraviesas.
-          </p>
-
-          <p className="mt-5 text-base leading-relaxed text-foreground text-justify">
-            No se trata de negar tu realidad ni de forzarte a cambiarla antes
-            de tiempo. Se trata de no perderte a ti misma dentro de ella.
-          </p>
-        </div>
-
-        {/* Dejar de abandonarte */}
-        <div className="mb-20">
-          <h2 className="text-center font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿Qué significa dejar de abandonarte?
-            </span>
-          </h2>
-
-          <p className="mt-6 text-base leading-relaxed text-foreground text-justify">
-            Significa aprender a escucharte, reconocer tus necesidades,
-            respetar tus límites y cuidar de ti incluso cuando la vida está
-            atravesando momentos que no puedes controlar.
-          </p>
-        </div>
-
-        {/* Cierre */}
-        <div className="text-center">
-          <h2 className="font-serif text-4xl leading-tight tracking-tight md:text-5xl">
-            <span className="italic text-primary">
-              ¿Qué quieres aprender a hacer contigo?
-            </span>
-          </h2>
-
-          <div className="mx-auto mt-8 max-w-2xl">
-            <p className="text-lg leading-relaxed text-foreground">
-              Conocerte.
-            </p>
-
-            <p className="mt-2 text-lg leading-relaxed text-foreground">
-              Cuidarte.
-            </p>
-
-            <p className="mt-2 text-lg leading-relaxed text-foreground">
-              Elegirte.
-            </p>
-
-            <p className="mt-2 text-lg leading-relaxed text-foreground">
-              Fortalecerte.
-            </p>
-
-            <p className="mt-2 text-lg leading-relaxed text-foreground">
-              Y aprender a estar de tu lado.
+          <div className="reveal mx-auto mt-10 max-w-2xl text-center">
+            <p className="font-serif text-2xl italic leading-snug text-foreground/85 md:text-3xl">
+              Habitarte es trabajar en ti mientras atraviesas tu propia vida.
             </p>
           </div>
 
-          <p className="mx-auto mt-10 max-w-2xl font-serif text-2xl italic text-primary">
-            Eso es Habitarte.
-          </p>
-
-          <div className="mt-12">
-            <span className="inline-block h-1 w-24 rounded-full bg-primary/60" />
+          <div className="reveal mx-auto mt-10 max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground text-justify">
+            <p>
+              Es aprender a permanecer contigo cuando las circunstancias no son como quisieras.
+              No&nbsp;significa negar tu realidad ni esperar a que todo cambie para empezar a cuidarte.
+            </p>
+            <p>
+              Significa aceptar dónde estás, trabajar en ti mientras lo atraviesas y prepararte
+              para la&nbsp;próxima etapa.
+            </p>
           </div>
         </div>
+      </section>
 
-      </div>
-    </section>
+      {/* PILARES */}
+      <section className="border-t border-border/60 bg-secondary/40 py-20 md:py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="reveal text-center font-serif text-3xl md:text-4xl">
+            Los tres pilares de <span className="italic text-primary">Habitarte</span> ❤️
+          </h2>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-3">
+            {pilares.map((p, i) => (
+              <article
+                key={p.n}
+                className="reveal flex flex-col items-center rounded-3xl border border-border bg-card p-8 text-center"
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                <span className="font-serif text-4xl italic text-primary/70">{p.n}</span>
+                <h3 className="mt-6 font-serif text-xl">{p.title}</h3>
+                <p className="mt-4 max-w-[18rem] text-sm leading-relaxed text-muted-foreground text-justify [text-align-last:center]">
+                  {p.text}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ¿CÓMO TRABAJAMOS? */}
+      <section className="py-20 md:py-24">
+        <div className="mx-auto max-w-5xl px-6">
+          <div className="reveal mx-auto max-w-2xl text-center">
+            <h2 className="font-serif text-3xl md:text-4xl">
+              ¿Cómo trabajamos <span className="italic text-primary">Habitarte</span> ❤️?
+            </h2>
+            <p className="mt-5 text-muted-foreground">
+              Trabajamos a través de talleres grupales y de mis mentorías con el método Kaizen.
+            </p>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {caminos.map((c, i) => (
+              <article
+                key={c.title}
+                className="reveal flex flex-col rounded-3xl border border-border bg-card p-8 md:p-10"
+                style={{ transitionDelay: `${i * 120}ms` }}
+              >
+                <h3 className="font-serif text-2xl md:text-3xl">
+                  {c.title}
+                  <span
+                    lang={c.extra.lang}
+                    className="ml-3 font-sans text-xl text-primary/70 md:text-2xl"
+                  >
+                    {c.extra.text}
+                  </span>
+                </h3>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {c.text}
+                </p>
+              </article>
+            ))}
+          </div>
+
+          <p className="reveal mx-auto mt-14 max-w-2xl text-center font-serif leading-snug">
+            <span className="block text-3xl italic text-primary md:text-4xl">
+              Habitarte <span className="not-italic text-2xl md:text-3xl">❤️</span>
+            </span>
+            <span className="mt-2 block text-2xl text-foreground/75 md:text-3xl">
+              Un espacio para volver a ti.
+            </span>
+          </p>
+
+          <div className="reveal mt-10 text-center">
+            <Link
+              to="/servicios"
+              viewTransition
+              className="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm text-primary-foreground transition-opacity hover:opacity-90"
+            >
+              Conocer servicios <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ¿PARA QUIÉN? */}
+      <section className="border-t border-border/60 bg-secondary/40 py-20 md:py-24">
+        <div className="mx-auto max-w-3xl px-6">
+          <div className="reveal text-center">
+            <h2 className="font-serif text-3xl md:text-4xl">
+              ¿Para quién es <span className="italic text-primary">Habitarte</span> ❤️?
+            </h2>
+            <p className="mt-5 text-muted-foreground">Para mujeres que están atravesando:</p>
+          </div>
+
+          <ul className="reveal mx-auto mt-10 max-w-xl space-y-4">
+            {paraQuien.map((item) => (
+              <li key={item} className="flex gap-3">
+                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-accent/20 text-accent">
+                  <Check size={12} />
+                </span>
+                <span className="text-foreground/85">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* CIERRE */}
+      <section className="py-24 md:py-28">
+        <div className="reveal mx-auto max-w-3xl px-6 text-center">
+          <h2 className="font-serif text-3xl italic text-primary md:text-4xl">
+            Habitarte <span className="not-italic text-2xl md:text-3xl">❤️</span>
+          </h2>
+          <blockquote className="mt-5 font-serif text-xl italic leading-relaxed text-foreground/80 md:text-2xl">
+            No nace de la idea de que las mujeres están rotas y alguien tiene que arreglarlas, sino
+            de que pueden aprender a acompañarse mientras reconstruyen las partes de su vida que
+            necesitan atención.
+          </blockquote>
+          <p className="mt-6 text-xs uppercase tracking-[0.25em] text-muted-foreground">
+            Wendy Padilla · Kaizen ❤️
+          </p>
+        </div>
+      </section>
+    </>
   );
 }
